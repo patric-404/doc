@@ -29,5 +29,5 @@ jobs:
         with:
            python-version: '3.10'
       - run: |
-           pip install selenium
+           pip install selenium requests whisper
            python main.py

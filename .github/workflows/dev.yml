@@ -1,0 +1,33 @@
+name: Docker Action
+
+on:
+  workflow_dispatch:
+
+#  schedule:
+ #  - cron: "*/15 * * * *"
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+#    strategy:
+ #     max-parallel: 20
+  #    fail-fast: false
+   #   matrix:
+    #    go: [1, 2, 3, 4]
+     #   flag: [A, B, C, D, E]
+#    env:
+ #       NUM_JOBS: 20
+  #      JOB: ${{ matrix.go }}
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Docker Run
+        run: docker compose up
+
+      - uses: actions/setup-python@v4
+        with:
+           python-version: '3.10'
+      - run: |
+           pip install selenium
+           python main.py

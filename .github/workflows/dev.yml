@@ -29,5 +29,6 @@ jobs:
         with:
            python-version: '3.10'
       - run: |
-           pip install selenium requests whisper
+           pip install selenium requests
+           pip install git+https://github.com/openai/whisper.git
            python main.py
